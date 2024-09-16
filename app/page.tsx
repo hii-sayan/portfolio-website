@@ -54,8 +54,8 @@ export default function Portfolio() {
     },
   ]
 
-  const scrollToSection = (sectionRef, sectionName) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+  const scrollToSection = (sectionRef: React.RefObject<HTMLElement>, sectionName: string) => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
     setActiveSection(sectionName)
   }
 
@@ -72,7 +72,7 @@ export default function Portfolio() {
       threshold: 0.5,
     }
 
-    const observerCallback = (entries) => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id)
